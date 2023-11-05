@@ -39,5 +39,6 @@ public class PoolExample {
             });
             }
         }
+        executor.shutdown();
     }
 }

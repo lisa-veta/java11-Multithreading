@@ -7,8 +7,8 @@ public class Lucky {
     static class LuckyThread extends Thread {
         @Override
         public void run() {
-            while (atomicX.get() < 999999) {
-                int x = atomicX.getAndIncrement();
+            int x;
+            while ((x = atomicX.getAndIncrement()) < 999999) {
                 if ((x % 10) + (x / 10) % 10 + (x / 100) % 10 == (x / 1000)
                         % 10 + (x / 10000) % 10 + (x / 100000) % 10) {
                     System.out.println(x);
